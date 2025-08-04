@@ -10,7 +10,6 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 dotenv.config();
 const port = process.env.PORT || 3000;
-connectDB();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,4 +24,11 @@ app.get("/api/config/paypal", (req, res) => {
 });
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname + "/uploads")));
-app.listen(port, () => console.log(`Server is running on port: ${port}`));
+
+
+app.listen(port, function () {
+  connectDB();
+  console.log(`Server is running on port: ${port}`);
+});
+// cloudinary
+// video rendering

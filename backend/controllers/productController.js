@@ -172,8 +172,8 @@ const filterProducts = asyncHandler(async (req, res) => {
     let args = {};
     if (checked.length > 0) args.category = checked;
     if (radio.length) args.price = { $gte: radio[0], $lte: radio[1] };
-    const products = await Product.find(args)
-    res.json(products)
+    const products = await Product.find(args);
+    res.json(products);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server Error" });
