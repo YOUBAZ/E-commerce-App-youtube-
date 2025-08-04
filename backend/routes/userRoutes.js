@@ -16,7 +16,6 @@ router
   .route("/")
   .post(createUser)
   .get(authenticate, authorizeAdmin, getAllUsers);
-  http://localhost:3000/api/users/auth
 router.post("/auth", loginUser);
 router.post("/logout", logoutCurrentUser);
 router
@@ -27,5 +26,5 @@ router
   .route("/:id")
   .delete(authenticate, authorizeAdmin, deleteUserById)
   .get(authenticate, authorizeAdmin, getUserById)
-  .put(authenticate, authorizeAdmin, updateUserById)
+  .put(authenticate, authorizeAdmin, updateUserById);
 export default router;
