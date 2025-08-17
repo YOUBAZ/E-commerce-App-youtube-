@@ -43,13 +43,24 @@ app.get("/", (req, res) => {
   res.send({ message: "API is running..." });
 });
 
-// Connect to database first, then start server
-connectDB().then(() => {
-  app.listen(port, function () {
-    console.log(`Server is running on port: ${port}`);
+// For Vercel serverless, we don't need app.listen()
+// Vercel will handle the server startup
+if (process.env.NODE_ENV !== 'production') {
+  connectDB().then(() => {
+    app.listen(port, function () {
+      console.log(`Server is running on port: ${port}`);
+    });
+  }).catch(err => {
+    console.error('Database connection failed:', err);
   });
-}).catch(err => {
-  console.error('Database connection failed:', err);
-});
+} else {
+  // For Vercel production
+  connectDB().catch(err => {
+    console.error('Database connection failed:', err);
+  });
+}
+
+// Export for Vercel
+export default app;
 // cloudinary
 // video rendering
