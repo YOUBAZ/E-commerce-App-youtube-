@@ -1,10 +1,10 @@
-import { PRODUCT_URL, UPLOAD_URL } from "../constants";
+import { PRODUCT_URL, UPLOAD_URL, BASE_URL } from "../constants";
 import { apiSlice } from "./apiSlice.js";
 export const productApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getProduct: builder.query({
       query: ({ keyword }) => ({
-        url: `${PRODUCT_URL}`,
+        url: `${BASE_URL}${PRODUCT_URL}`,
         params: { keyword },
       }),
       keepUnusedDataFor: 5,
