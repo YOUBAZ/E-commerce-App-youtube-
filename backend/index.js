@@ -14,7 +14,7 @@ const corsOptions = {
   origin: [
     "http://localhost:5173",
     "https://e-commerce-app-youtube.vercel.app",
-    "https://e-commerce-app-youtube-sl0624gjp-youbazs-projects.vercel.app"
+    "https://e-commerce-app-youtube-sl0624gjp-youbazs-projects.vercel.app","https://e-commerce-app-youtube-2ps5.vercel.app"
   ],
   credentials: true,
   optionsSuccessStatus: 200,
