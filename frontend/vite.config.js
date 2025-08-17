@@ -9,8 +9,7 @@ export default defineConfig({
     proxy: {
       '/api': {
       target: process.env.BASE_URL,
-      changeOrigin: true,
-      rewrite: path => path.replace(/^\/api/, '')
+
     }
       
     },
