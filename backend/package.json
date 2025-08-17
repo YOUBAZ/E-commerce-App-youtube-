@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "start": "node index.js",
+    "build": "echo 'Backend build complete'"
   },
   "keywords": [],
   "author": "",
