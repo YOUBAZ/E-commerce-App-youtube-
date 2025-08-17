@@ -7,8 +7,12 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api/": process.env.BASE_URL,
-      "/uploads/": process.env.BASE_URL,
+      '/api': {
+      target: process.env.BASE_URL,
+      changeOrigin: true,
+      rewrite: path => path.replace(/^\/api/, '')
+    }
+      
     },
   },
 });
