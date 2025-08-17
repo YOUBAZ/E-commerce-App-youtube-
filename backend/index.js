@@ -39,9 +39,13 @@ app.get("/", (req, res) => {
   res.send({ message: "API is running..." });
 });
 
-app.listen(port, function () {
-  connectDB();
-  console.log(`Server is running on port: ${port}`);
+// Connect to database first, then start server
+connectDB().then(() => {
+  app.listen(port, function () {
+    console.log(`Server is running on port: ${port}`);
+  });
+}).catch(err => {
+  console.error('Database connection failed:', err);
 });
 // cloudinary
 // video rendering
